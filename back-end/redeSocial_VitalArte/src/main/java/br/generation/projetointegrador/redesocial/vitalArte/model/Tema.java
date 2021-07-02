@@ -11,23 +11,23 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "tb_tema")
 public class Tema {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@NotNull (message = "O nome do tema é obrigatório!")
+
+	@NotNull(message = "O nome do tema é obrigatório!")
 	@Size(min = 5, max = 50)
 	private String tema;
-	
+
 	@NotNull
 	@Size(min = 5, max = 100)
 	private String descricao;
-	
+
 	@Size(min = 3, max = 20)
 	private String palavraChave;
-	
-	//Escrever o OneToMany quando fizermos as próximas models (postagens)
+
+	// Escrever o OneToMany quando fizermos as próximas models (postagens)
 
 	public long getId() {
 		return id;
@@ -60,7 +60,5 @@ public class Tema {
 	public void setPalavraChave(String palavraChave) {
 		this.palavraChave = palavraChave;
 	}
-	
-	
 
 }
