@@ -6,18 +6,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name = "tb_postagem")
 public class Postagem {
 
-	
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,7 +49,14 @@ public class Postagem {
 	
 	@Size(max = 255)
 	private String multimidia; 
-	//introduzir objetos de relacionamento entre tabelas (Foreign Keys)
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagens")
+	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagens")
+	private Usuario usuario;
 
 
 	public long getId() {
@@ -119,9 +128,24 @@ public class Postagem {
 		this.multimidia = multimidia;
 	}
 	
-	
-	
-	
+	public Tema getTema() {
+		return tema;
+	}
+
+
+	public void setTema(Tema tema) {
+		this.tema = tema;
+	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 	
 	
 }
