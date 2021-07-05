@@ -43,6 +43,11 @@ public class PostagemController {
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 
 	}
+	
+	/*@GetMapping("/usuario/{id}")
+	public ResponseEntity<List<Postagem>> findByUser (@PathVariable long id){
+		return ResponseEntity.ok(repository.findAllByUsuario_Id(id));
+	}*/
 
 	@PostMapping
 	public ResponseEntity<Postagem> postPostagem(@RequestBody Postagem postagem) {

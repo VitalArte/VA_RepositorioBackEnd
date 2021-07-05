@@ -11,5 +11,7 @@ import br.generation.projetointegrador.redesocial.vitalArte.model.Postagem;
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 
 	public List<Postagem> findAllByTituloContainingIgnoreCase(String titulo);
+	
+	//public List<Postagem> findAllByUsuario_Id(long user_id);
 
 }
