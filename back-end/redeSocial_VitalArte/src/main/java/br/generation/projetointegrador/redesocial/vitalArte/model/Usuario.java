@@ -40,11 +40,10 @@ public class Usuario {
 
 	@Size(max = 250)
 	private String biografia;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagens;
-	
 
 	public long getId() {
 		return id;

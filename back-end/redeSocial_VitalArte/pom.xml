@@ -14,7 +14,7 @@
 	<name>redeSocial_VitalArte</name>
 	<description>Projeto Integrador T25 - Rede Social / VitalArte</description>
 	<properties>
-		<java.version>16</java.version>
+		<java.version>15</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
