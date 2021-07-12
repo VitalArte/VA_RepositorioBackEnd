@@ -44,10 +44,10 @@ public class PostagemController {
 
 	}
 	
-	/*@GetMapping("/usuario/{id}")
-	public ResponseEntity<List<Postagem>> findByUser (@PathVariable long id){
-		return ResponseEntity.ok(repository.findAllByUsuario_Id(id));
-	}*/
+	@GetMapping("/usuario/{nome}")
+	public ResponseEntity<List<Postagem>> findByUsuarioNome (@PathVariable String nome){
+		return ResponseEntity.ok(repository.findAllByUsuario_NomeIgnoreCase(nome));
+	}
 
 	@PostMapping
 	public ResponseEntity<Postagem> postPostagem(@RequestBody Postagem postagem) {

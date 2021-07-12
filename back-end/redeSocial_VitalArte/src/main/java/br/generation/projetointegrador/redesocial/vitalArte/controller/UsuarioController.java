@@ -31,7 +31,7 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
-	@GetMapping("/lista")
+	@GetMapping("/listar")
 	public ResponseEntity<List<Usuario>> getAll() {
 		return ResponseEntity.ok(usuarioRepository.findAll());
 	}

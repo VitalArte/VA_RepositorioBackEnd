@@ -14,6 +14,7 @@ import br.generation.projetointegrador.redesocial.vitalArte.repository.UsuarioRe
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
