@@ -51,12 +51,12 @@ public class UsuarioService {
 	public Optional<UsuarioLogin> logarUsuario(Optional<UsuarioLogin> usuarioLogin) {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioLogin.get().getUsuario());
+		Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioLogin.get().getEmail());
 
 		if (usuario.isPresent()) {
 			if (encoder.matches(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
 
-				String auth = usuarioLogin.get().getUsuario() + ":" + usuarioLogin.get().getSenha();
+				String auth = usuarioLogin.get().getEmail() + ":" + usuarioLogin.get().getSenha();
 				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				String authHeader = "Basic " + new String(encodedAuth);
 

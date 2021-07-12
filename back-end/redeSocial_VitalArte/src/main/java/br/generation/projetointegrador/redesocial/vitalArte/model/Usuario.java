@@ -23,16 +23,13 @@ public class Usuario {
 	}
 
 	public Usuario(long id,  String nome, String email,
-			 String senha,  String tipoConta, String foto,
-			 String biografia) {
+			 String senha) {
 		
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.tipoConta = tipoConta;
-		this.foto = foto;
-		this.biografia = biografia;
+
 	}
 
 	@Id
@@ -47,12 +44,12 @@ public class Usuario {
 	private String email;
 
 	@NotNull
-	@Size(min = 5, max = 20)
 	private String senha;
 
 	@NotNull
 	private String tipoConta;
-
+	
+	
 	private String foto;
 
 	@Size(max = 250)

@@ -4,7 +4,7 @@ public class UsuarioLogin {
 
 	private String nome;
 
-	private String usuario;
+	private String email;
 
 	private String senha;
 
@@ -18,12 +18,12 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setUsuario(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
