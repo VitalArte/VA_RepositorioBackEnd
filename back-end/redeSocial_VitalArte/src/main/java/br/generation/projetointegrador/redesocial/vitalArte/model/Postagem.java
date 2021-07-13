@@ -33,7 +33,7 @@ public class Postagem {
 	@Size(max = 255)
 	private String hashtags;
 
-	private int curtir;
+	private int curtidas;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date datahora = new java.sql.Date(System.currentTimeMillis());
@@ -81,12 +81,12 @@ public class Postagem {
 		this.hashtags = hashtags;
 	}
 
-	public int getCurtir() {
-		return curtir;
+	public int getCurtidas() {
+		return curtidas;
 	}
 
-	public void setCurtir(int curtir) {
-		this.curtir = curtir;
+	public void setCurtidas(int curtir) {
+		this.curtidas = curtir;
 	}
 
 	public Date getDatahora() {

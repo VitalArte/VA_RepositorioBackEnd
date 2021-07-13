@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.generation.projetointegrador.redesocial.vitalArte.model.Postagem;
 import br.generation.projetointegrador.redesocial.vitalArte.repository.PostagemRepository;
+import br.generation.projetointegrador.redesocial.vitalArte.service.PostagemService;
 
 @RestController
 @RequestMapping("/postagens")
@@ -25,6 +26,9 @@ public class PostagemController {
 
 	@Autowired
 	private PostagemRepository repository;
+	
+	@Autowired
+	private PostagemService service;
 
 	@GetMapping
 	public ResponseEntity<List<Postagem>> findAllPostagem() {
@@ -58,6 +62,16 @@ public class PostagemController {
 	@PutMapping
 	public ResponseEntity<Postagem> putPostagem(@RequestBody Postagem postagem) {
 		return ResponseEntity.status(HttpStatus.OK).body(repository.save(postagem));
+	}
+	
+	@PutMapping("/curtir/{id}")
+	public ResponseEntity<Postagem> curtirPostagemId(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.curtir(id));
+	}
+	
+	@PutMapping("/descurtir/{id}")
+	public ResponseEntity<Postagem> descurtirPostagemId (@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.OK).body(service.descurtir(id));
 	}
 
 	@DeleteMapping("/{id}")
