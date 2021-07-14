@@ -21,12 +21,16 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	public Optional<Usuario> cadastrarUsuario (Usuario usuario) {
+	public Usuario cadastrarUsuario (Usuario usuario) {
+		if(usuarioRepository.findByEmail(usuario.getEmail()).isPresent())
+			throw new ResponseStatusException(
+				HttpStatus.BAD_REQUEST, "E-mail já existe!", null);
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 		String senhaEncoder = encoder.encode(usuario.getSenha());
 		usuario.setSenha(senhaEncoder);
-		return Optional.of(usuarioRepository.save(usuario));
+		return usuarioRepository.save(usuario);
 	}
 
 	public Optional<Usuario> atualizarUsuario(Usuario usuario) {
