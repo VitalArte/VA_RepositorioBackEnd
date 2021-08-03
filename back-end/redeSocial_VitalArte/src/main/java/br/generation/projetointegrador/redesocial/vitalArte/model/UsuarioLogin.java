@@ -9,7 +9,13 @@ public class UsuarioLogin {
 	private String senha;
 
 	private String token;
-
+	
+	private String tipoConta;
+	
+	private String foto;
+	
+	private String biografia;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -40,5 +46,33 @@ public class UsuarioLogin {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getTipoConta() {
+		return tipoConta;
+	}
+
+	public void setTipoConta(String tipoConta) {
+		this.tipoConta = tipoConta;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public String getBiografia() {
+		return biografia;
+	}
+
+	public void setBiografia(String biografia) {
+		this.biografia = biografia;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
