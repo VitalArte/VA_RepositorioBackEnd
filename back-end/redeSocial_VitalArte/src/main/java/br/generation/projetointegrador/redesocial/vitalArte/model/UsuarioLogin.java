@@ -1,6 +1,8 @@
 package br.generation.projetointegrador.redesocial.vitalArte.model;
 
 public class UsuarioLogin {
+	
+	private long id;
 
 	private String nome;
 
@@ -74,5 +76,13 @@ public class UsuarioLogin {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }
