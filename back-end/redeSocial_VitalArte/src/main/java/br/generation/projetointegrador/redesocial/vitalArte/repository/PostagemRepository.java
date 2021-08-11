@@ -14,4 +14,6 @@ public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 	
 	public List<Postagem> findAllByUsuario_NomeIgnoreCase(String nome);
 
+	public List<Postagem> findAllByUsuario_Id(Long id);
+
 }
