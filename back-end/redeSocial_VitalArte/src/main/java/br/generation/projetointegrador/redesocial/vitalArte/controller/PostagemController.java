@@ -50,12 +50,17 @@ public class PostagemController {
 	
 	@GetMapping("/usuario/{nome}")
 	public ResponseEntity<List<Postagem>> findByUsuarioNome (@PathVariable String nome){
-		return ResponseEntity.ok(repository.findAllByUsuario_NomeIgnoreCase(nome));
+		return ResponseEntity.ok(repository.findAllByUsuario_NomeContainingIgnoreCase(nome));
 	}
 
 	@GetMapping("/usuario/id/{id}")
 	public ResponseEntity<List<Postagem>> findPostagensByUsuarioId(@PathVariable Long id){
 		return ResponseEntity.ok(repository.findAllByUsuario_Id(id));
+	}
+
+	@GetMapping("tema/{tema}")
+	public ResponseEntity<List<Postagem>> findPostagensByTema(@PathVariable String tema){
+		return ResponseEntity.ok(repository.findAllByTema_TemaContainingIgnoreCase(tema));
 	}
 
 	@PostMapping
